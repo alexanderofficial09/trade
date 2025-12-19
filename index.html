@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="tk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NurikFX™ TradeKillersClub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { min-height: 100vh; display: flex; justify-content: center; align-items: center; background-color: #0a0e17; color: white; overflow-x: hidden; position: relative; font-family: 'Exo 2', sans-serif; }
+        .background-image { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center; filter: blur(12px) brightness(0.4); z-index: -1; }
+        .container { width: 95%; max-width: 1200px; background-color: rgba(15, 23, 42, 0.92); border-radius: 25px; overflow: hidden; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); border: 2px solid rgba(56, 189, 248, 0.25); backdrop-filter: blur(8px); margin: 30px auto; position: relative; }
+        
+        /* Header */
+        .header { text-align: center; padding: 40px 30px 35px; border-bottom: 2px solid rgba(56, 189, 248, 0.4); background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%); position: relative; overflow: hidden; }
+        .header::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #38bdf8, #3b82f6, #8b5cf6, #38bdf8); background-size: 300% 100%; animation: gradientShift 8s linear infinite; }
+        @keyframes gradientShift { 0% { background-position: 0% 50%; } 100% { background-position: 300% 50%; } }
+        
+        .logo-container { display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 20px; }
+        .logo-image { max-width: 320px; height: auto; margin-bottom: 15px; border-radius: 15px; border: 3px solid rgba(56, 189, 248, 0.5); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); transition: transform 0.3s ease; background-color: rgba(0, 0, 0, 0.2); padding: 5px; }
+        .logo-image:hover { transform: scale(1.02); box-shadow: 0 15px 30px rgba(56, 189, 248, 0.3); }
+        .tagline { font-size: 2.2rem; font-weight: 700; color: #fbbf24; letter-spacing: 2px; margin-bottom: 10px; text-shadow: 0 2px 10px rgba(251, 191, 36, 0.3); font-family: 'Kanit', sans-serif; text-transform: uppercase; }
+        .exclusive { font-size: 1.6rem; color: #38bdf8; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin-top: 15px; padding: 10px 25px; display: inline-block; border: 3px solid #38bdf8; border-radius: 50px; background-color: rgba(56, 189, 248, 0.1); box-shadow: 0 5px 20px rgba(56, 189, 248, 0.3); font-family: 'Kanit', sans-serif; }
+        
+        /* Content */
+        .content { padding: 50px 40px; display: flex; flex-direction: column; align-items: center; }
+        .welcome-text { font-size: 1.5rem; line-height: 1.8; text-align: center; max-width: 900px; margin-bottom: 50px; color: #e2e8f0; padding: 30px; background: rgba(30, 41, 59, 0.7); border-radius: 20px; border-left: 5px solid #fbbf24; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); font-family: 'Exo 2', sans-serif; }
+        .highlight { color: #38bdf8; font-weight: 700; font-family: 'Kanit', sans-serif; }
+        .highlight-yellow { color: #fbbf24; font-weight: 700; font-family: 'Kanit', sans-serif; }
+        
+       
+        .strategies { width: 100%; max-width: 900px; margin-bottom: 60px; }
+        .strategies-title { font-size: 2.2rem; text-align: center; margin-bottom: 40px; color: #fbbf24; position: relative; padding-bottom: 15px; font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
+        .strategies-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 150px; height: 4px; background: linear-gradient(90deg, transparent, #fbbf24, transparent); }
+        .strategies-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .strategy-item { background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9)); padding: 25px; border-radius: 15px; border: 2px solid rgba(56, 189, 248, 0.3); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); transition: transform 0.3s, box-shadow 0.3s; font-family: 'Exo 2', sans-serif; }
+        .strategy-item:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(56, 189, 248, 0.2); border-color: rgba(56, 189, 248, 0.6); }
+        .strategy-name { font-size: 1.6rem; color: #38bdf8; margin-bottom: 15px; display: flex; align-items: center; font-family: 'Kanit', sans-serif; }
+        .strategy-name i { margin-right: 15px; font-size: 1.8rem; }
+        .strategy-desc { font-size: 1.1rem; line-height: 1.6; color: #cbd5e1; }
+        
+        /* Buttons */
+        .buttons-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 35px; width: 100%; margin-bottom: 60px; }
+        .btn-3d { width: 300px; height: 100px; perspective: 1000px; cursor: pointer; transition: transform 0.3s; text-decoration: none; }
+        .btn-3d:hover { transform: translateY(-10px); }
+        .btn-inner { position: relative; width: 100%; height: 100%; transition: transform 0.5s; transform-style: preserve-3d; border-radius: 15px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); }
+        .btn-3d:hover .btn-inner { transform: rotateY(15deg) rotateX(5deg); }
+        .btn-front { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 15px; display: flex; justify-content: flex-start; align-items: center; padding: 0 30px; overflow: hidden; }
+        .btn-youtube .btn-front { background: linear-gradient(135deg, #FF0000, #CC0000); border: 3px solid #FF3333; }
+        .btn-tiktok .btn-front { background: linear-gradient(135deg, #000000, #333333); border: 3px solid #69C9D0; }
+        .btn-instagram .btn-front { background: linear-gradient(135deg, #E1306C, #C13584, #833AB4, #5851DB, #405DE6); border: 3px solid #E1306C; }
+        .btn-telegram .btn-front { background: linear-gradient(135deg, #0088cc, #006699); border: 3px solid #2AABEE; }
+        .btn-icon { font-size: 3.5rem; margin-right: 25px; color: white; text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3); }
+        .btn-title { font-size: 1.8rem; font-weight: 700; color: white; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); font-family: 'Kanit', sans-serif; }
+        .btn-subtitle { font-size: 1rem; color: rgba(255, 255, 255, 0.9); margin-top: 5px; font-family: 'Exo 2', sans-serif; }
+        
+        /* Join */
+        .join-section { text-align: center; max-width: 800px; margin-top: 30px; padding: 30px; background: rgba(56, 189, 248, 0.1); border-radius: 20px; border: 2px solid rgba(56, 189, 248, 0.4); }
+        .join-text { font-size: 1.8rem; line-height: 1.6; color: #e2e8f0; margin-bottom: 25px; font-family: 'Exo 2', sans-serif; }
+        .join-button { display: inline-block; padding: 18px 45px; background: linear-gradient(90deg, #38bdf8, #3b82f6); color: white; text-decoration: none; font-size: 1.5rem; font-weight: 700; border-radius: 50px; transition: all 0.3s; box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4); border: none; cursor: pointer; font-family: 'Kanit', sans-serif; text-transform: uppercase; }
+        .join-button:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(56, 189, 248, 0.6); background: linear-gradient(90deg, #3b82f6, #38bdf8); }
+        
+        /* Footer */
+        .footer { text-align: center; padding: 30px; background-color: rgba(15, 23, 42, 0.95); border-top: 2px solid rgba(56, 189, 248, 0.3); color: #94a3b8; font-size: 1rem; font-family: 'Exo 2', sans-serif; }
+        .footer p { margin-bottom: 10px; }
+        .experience { color: #fbbf24; font-weight: 600; font-size: 1.2rem; font-family: 'Kanit', sans-serif; }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .btn-3d { width: 280px; }
+            .logo-image { max-width: 280px; }
+            .tagline { font-size: 1.9rem; }
+        }
+        @media (max-width: 768px) {
+            .content { padding: 40px 20px; }
+            .logo-image { max-width: 240px; }
+            .tagline { font-size: 1.6rem; }
+            .btn-3d { width: 100%; max-width: 350px; }
+            .strategies-list { grid-template-columns: 1fr; }
+            .welcome-text { font-size: 1.3rem; padding: 20px; }
+        }
+        @media (max-width: 480px) {
+            .header { padding: 30px 20px 25px; }
+            .logo-image { max-width: 200px; }
+            .tagline { font-size: 1.4rem; }
+            .exclusive { font-size: 1.2rem; padding: 8px 20px; }
+            .btn-icon { font-size: 2.8rem; margin-right: 15px; }
+            .btn-title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="container">
+        <div class="header">
+            <div class="logo-container">
+                <img src="" alt="NurikFX TradeKillersClub Logo" class="logo-image" id="logoImage">
+            </div>
+            <div class="tagline">TRADEKILLERSCLUB</div>
+            <div class="exclusive">ÝAPYK KANAL</div>
+        </div>
+        
+        <div class="content">
+            <div class="welcome-text">
+                Salam dostlar. <span class="highlight">NurikFX™ Tradekillersclubyna</span> hoş geldiňiz.<br><br>
+                <span class="experience">Forex we Kripto dünýäsinde 2 ýyllyk işjeň tejribe.</span> Men bazarda tötänlige däl-de, takyk algoritmlere we analizlere bil baglaýaryn.
+            </div>
+            
+            <div class="strategies">
+                <h2 class="strategies-title">Nämeler bilen işleýärin?</h2>
+                <div class="strategies-list">
+                    <div class="strategy-item"><div class="strategy-name"><i class="fas fa-bullseye"></i> MSNR</div><div class="strategy-desc">Bazaryň hakyky nokatlaryny kesgitlemek.</div></div>
+                    <div class="strategy-item"><div class="strategy-name"><i class="fas fa-flask"></i> Alchemist 0.5</div><div class="strategy-desc">1:10 RR bilen minimal töwekgelçilik, maksimal peýda.</div></div>
+                    <div class="strategy-item"><div class="strategy-name"><i class="fas fa-bolt"></i> Impuls söwdasy</div><div class="strategy-desc">Acceleration we Fobib strategiýalary arkaly dinamiki hereketleri tutmak.</div></div>
+                    <div class="strategy-item"><div class="strategy-name"><i class="fas fa-chart-line"></i> MFibonachhi</div><div class="strategy-desc">Analiziň iň takyk guralynyň kämilleşdirilen görnüşi.</div></div>
+                </div>
+                <div class="strategy-item" style="grid-column: 1 / -1; text-align: center; margin-top: 20px;">
+                    <div class="strategy-desc" style="font-size: 1.3rem; color: #fbbf24; font-family: 'Kanit', sans-serif;">Meniň maksadym — her bir söwdanyň arkasynda durnukly logikanyň bolmagyny üpjün etmek.</div>
+                </div>
+            </div>
+            
+            <h2 class="strategies-title">Sosial ulgamlarda yzarlaň</h2>
+            <div class="buttons-container">
+                <a href="https://www.youtube.com/@nurikfxofficial" target="_blank" class="btn-3d btn-youtube"><div class="btn-inner"><div class="btn-front"><i class="fab fa-youtube btn-icon"></i><div class="btn-text"><div class="btn-title">YouTube</div><div class="btn-subtitle">@nurikfxofficial</div></div></div></div></a>
+                <a href="https://www.tiktok.com/@nurikfxofficial?_r=1&_t=ZS-92JtM4alMlJ" target="_blank" class="btn-3d btn-tiktok"><div class="btn-inner"><div class="btn-front"><i class="fab fa-tiktok btn-icon"></i><div class="btn-text"><div class="btn-title">TikTok</div><div class="btn-subtitle">@nurikfxofficial</div></div></div></div></a>
+                <a href="https://www.instagram.com/nurikfxofficial?igsh=bTRwYTFhNDFnaWR5" target="_blank" class="btn-3d btn-instagram"><div class="btn-inner"><div class="btn-front"><i class="fab fa-instagram btn-icon"></i><div class="btn-text"><div class="btn-title">Instagram</div><div class="btn-subtitle">@nurikfxofficial</div></div></div></div></a>
+                <a href="https://t.me/nurikfxofficial" target="_blank" class="btn-3d btn-telegram"><div class="btn-inner"><div class="btn-front"><i class="fab fa-telegram btn-icon"></i><div class="btn-text"><div class="btn-title">Telegram</div><div class="btn-subtitle">@nurikfxofficial</div></div></div></div></a>
+            </div>
+            
+            <div class="join-section">
+                <div class="join-text"><span class="highlight-yellow">Nurikfxtradekillersclubyna</span> goşul we trading sferasynda öz ornuña eýe bol.</div>
+                <a href="https://t.me/nurikfxofficial" target="_blank" class="join-button">KLUBA GOŞUL</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 NurikFX™ TradeKillersClub. Ähli hukuklar goragly.</p>
+            <p>Ýapyk kanal - hakyky söwdaçylar üçin premium hyzmat.</p>
+            <p class="experience">2 ýyllyk işjeň Forex we Kripto tejribesi</p>
+        </div>
+    </div>
+    
+    <script>
+        const yourDirectImageLink = "https://i.ibb.co/b5c3W4Vk/IMG-20251219-005936-821.jpg";
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Logony ýükle
+            const logoImage = document.getElementById('logoImage');
+            if (yourDirectImageLink && yourDirectImageLink.trim() !== '') {
+                logoImage.src = yourDirectImageLink;
+                console.log('Logo suraty ýüklendi: ' + yourDirectImageLink);
+            }
+            
+            
+            const buttons = document.querySelectorAll('.btn-3d');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() { this.style.transform = 'translateY(-15px) scale(1.05)'; });
+                button.addEventListener('mouseleave', function() { this.style.transform = 'translateY(0) scale(1)'; });
+            });
+            
+            
+            document.addEventListener('mousemove', function(e) {
+                const bg = document.querySelector('.background-image');
+                const x = (window.innerWidth - e.pageX * 0.3) / 100;
+                const y = (window.innerHeight - e.pageY * 0.3) / 100;
+                bg.style.transform = `translateX(${x}px) translateY(${y}px) scale(1.1)`;
+            });
+            
+           
+            const joinButton = document.querySelector('.join-button');
+            joinButton.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                ripple.style.cssText = `position: absolute; border-radius: 50%; background: rgba(255, 255, 255, 0.7); transform: scale(0); animation: ripple-animation 0.6s linear; width: ${size}px; height: ${size}px; top: ${y}px; left: ${x}px;`;
+                this.appendChild(ripple);
+                setTimeout(() => { ripple.remove(); }, 600);
+            });
+        });
+        
+        
+        const style = document.createElement('style');
+        style.textContent = `@keyframes ripple-animation { to { transform: scale(4); opacity: 0; } }`;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
